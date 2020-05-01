@@ -13,3 +13,18 @@ class IngredienteViewSet(viewsets.ModelViewSet):
         queryset = Ingrediente.objects.all()
         serializer = IngredienteSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    def create(self, request):
+        pass
+
+    def retrieve(self, request, pk=None):
+        pass
+
+    def update(self, request, pk=None):
+        pass
+
+    # def partial_update(self, request, pk=None):
+    #     pass
+
+    def destroy(self, request, pk=None):
+        pass
