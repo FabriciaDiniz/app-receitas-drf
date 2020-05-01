@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from receitas.receita.models import Receita, DIFICULDADE
-from receitas.ingrediente.serializers import IngredienteSerializer
+from receitas.receita.models import Receita
 
 
 class ReceitaSerializer(serializers.ModelSerializer):

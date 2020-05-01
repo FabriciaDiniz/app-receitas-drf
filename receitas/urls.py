@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import include, path
 
+from .api import router
+
 
 urlpatterns = [
-    path('receitas/', include('receitas.receita.urls')),
-    path('ingredientes/', include('receitas.ingrediente.urls')),
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
 ]
