@@ -7,4 +7,4 @@ class IngredienteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ingrediente
-        fields = ['nome', 'unidade']
+        fields = '__all__'
