@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReceitaComponent } from './receita/receita.component';
 import { IngredienteComponent } from './ingrediente/ingrediente.component';
-import {ConexaoService} from './conexao.service';
+import { ConexaoService } from './conexao.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {ConexaoService} from './conexao.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [ConexaoService],
   bootstrap: [AppComponent]
