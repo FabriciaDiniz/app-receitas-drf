@@ -20,6 +20,6 @@ UNIDADE = (
 class ReceitaIngrediente(models.Model):
 
     receita = models.ForeignKey(Receita, on_delete=models.CASCADE)
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.DO_NOTHING)
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.CASCADE)
     unidade = models.CharField(max_length=10, choices=UNIDADE)
     quantidade = models.CharField(max_length=5)

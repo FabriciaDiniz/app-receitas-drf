@@ -4,6 +4,9 @@ from receitas.receitaIngrediente.models import ReceitaIngrediente
 from receitas.receita.serializers import ReceitaSerializer
 from receitas.ingrediente.serializers import IngredienteSerializer
 
+from receitas.receita.models import Receita
+from receitas.ingrediente.models import Ingrediente
+
 
 class ReceitaIngredienteSerializer(serializers.ModelSerializer):
     receita = ReceitaSerializer
@@ -13,10 +16,3 @@ class ReceitaIngredienteSerializer(serializers.ModelSerializer):
         model = ReceitaIngrediente
         fields = '__all__'
 
-    def create(self, validated_data):
-        receita_data = validated_data.pop('receita')
-        ingrediente_data = validated_data.pop('ingrediente')
-        rec_ing = ReceitaIngrediente.objects.create(**validated_data)
-        rec_ing.receita.set(receita_data)
-        rec_ing.ingrediente.set(ingrediente_data)
-        return rec_ing
