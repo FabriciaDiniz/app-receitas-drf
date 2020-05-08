@@ -1,0 +1,15 @@
+<div>
+    <h1>{{ receita.nome }}</h1>
+    <div>
+        <h2>Ingredientes:</h2>
+        <ul *ngFor="let ingrediente of receita.ingredientes">
+            <li>{{ ingrediente }}</li>
+        </ul>
+
+        <h2>Modo de Preparo:</h2>
+        <p>{{ receita.modo_de_preparo }}</p>
+
+        <h3>Dificuldade: </h3>
+        <p>{{ receita.dificuldade }}</p>
+    </div>
+</div>

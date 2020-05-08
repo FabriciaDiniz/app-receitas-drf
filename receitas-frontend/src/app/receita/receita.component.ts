@@ -1,5 +1,6 @@
-import { ConexaoService } from './../conexao.service';
 import { Component, OnInit } from '@angular/core';
+
+import { ConexaoService } from './../conexao.service';
 
 @Component({
   selector: 'app-receita',
@@ -10,13 +11,13 @@ export class ReceitaComponent implements OnInit {
 
   constructor(
     private conexaoService : ConexaoService,
-  ) { }
+  ) {}
 
-  private apiUrl = 'http://localhost:8000/receitas';
+  private uri = 'receitas';
   public receitas: any;
 
   ngOnInit(): void {
-    this.conexaoService.getReceitas(this.apiUrl).subscribe(
+    this.conexaoService.getObjetos(this.uri).subscribe(
       value => {
         console.log(value)
         this.receitas = value;
@@ -26,5 +27,4 @@ export class ReceitaComponent implements OnInit {
       }
     );
   }
-
 }

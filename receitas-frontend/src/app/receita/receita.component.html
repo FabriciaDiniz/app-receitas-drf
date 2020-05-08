@@ -1,3 +1,5 @@
-<ul *ngFor="let receita of receitas"> 
-    <li>{{ receita.nome }}</li>
-</ul>
+<div *ngIf="lista;else detalheReceita">
+    <ul *ngFor="let receita of receitas"> 
+        <li routerLink="e">{{ receita.nome }}</li>
+    </ul>
+</div>

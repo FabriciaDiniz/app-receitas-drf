@@ -1,6 +1,4 @@
-from django.http import Http404
-from rest_framework import viewsets, status
-from rest_framework.response import Response
+from rest_framework import viewsets
 
 from receitas.receita.models import Receita
 from receitas.receita.serializers import ReceitaSerializer

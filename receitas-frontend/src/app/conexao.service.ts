@@ -7,9 +7,15 @@ import { Observable } from "rxjs";
 })
 export class ConexaoService {
 
+  private readonly url = 'http://localhost:8000/';
+
   constructor(private httpClient: HttpClient) {}
 
-  public getReceitas(url: string): Observable<any>{
-    return this.httpClient.get(url);
+  public getObjetos(uri: string): Observable<any>{
+    return this.httpClient.get(`${this.url}/${uri}`);
+  }
+
+  public getDetalheobjeto(uri: string) {
+    return this.httpClient.get(`${this.url}/${uri}`);
   }
 }

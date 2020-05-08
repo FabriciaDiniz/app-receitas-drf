@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,12 +8,15 @@ import { AppComponent } from './app.component';
 import { ReceitaComponent } from './receita/receita.component';
 import { IngredienteComponent } from './ingrediente/ingrediente.component';
 import { ConexaoService } from './conexao.service';
+import { ReceitaDetalheComponent } from './receita-detalhe/receita-detalhe.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ReceitaComponent,
-    IngredienteComponent
+    IngredienteComponent,
+    ReceitaDetalheComponent,
   ],
   imports: [
     BrowserModule,
