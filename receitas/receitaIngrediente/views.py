@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.response import Response
 
 from receitas.receitaIngrediente.models import ReceitaIngrediente
 from receitas.receitaIngrediente.serializers import ReceitaIngredienteSerializer
@@ -11,3 +12,10 @@ class ReceitaIngredienteViewSet(viewsets.ModelViewSet):
 
     queryset = ReceitaIngrediente.objects.all()
     serializer_class = ReceitaIngredienteSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        receita_id = request.data['receita']
+        ingredientes = ReceitaIngrediente.objects.filter(receita_id=receita_id)
+        serializer = ReceitaIngredienteSerializer(ingredientes, many=True)
+        return Response(serializer.data)
+
