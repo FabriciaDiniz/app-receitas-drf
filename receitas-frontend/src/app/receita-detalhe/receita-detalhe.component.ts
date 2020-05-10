@@ -13,12 +13,12 @@ export class ReceitaDetalheComponent implements OnInit {
     private conexaoService : ConexaoService,
   ) {}
 
-  private id: string;
-  private receita: string;
-  private uri = `receitas/${this.id}`;
+  public id: string;
+  public receita: any;
+  private uri = `receitas`;
 
   ngOnInit(): void {
-    this.conexaoService.getObjetos(this.uri).subscribe(
+    this.conexaoService.getDetalheObjeto(this.uri, this.id).subscribe(
       value => {
         console.log(value)
         this.receita = value;

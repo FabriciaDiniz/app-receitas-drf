@@ -19,7 +19,6 @@ export class ReceitaComponent implements OnInit {
   ngOnInit(): void {
     this.conexaoService.getObjetos(this.uri).subscribe(
       value => {
-        console.log(value)
         this.receitas = value;
       },
       error => {
