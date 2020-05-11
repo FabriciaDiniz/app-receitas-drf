@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ConexaoService } from './../conexao.service';
+import { ConexaoService } from '../../conexao.service';
 
 @Component({
   selector: 'app-receita-detalhe',

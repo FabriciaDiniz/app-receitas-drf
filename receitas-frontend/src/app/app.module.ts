@@ -1,26 +1,25 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReceitaComponent } from './receita/receita.component';
+import { AppRoutingModule } from './app-routing.module';
 import { IngredienteComponent } from './ingrediente/ingrediente.component';
 import { ConexaoService } from './conexao.service';
-import { ReceitaDetalheComponent } from './receita-detalhe/receita-detalhe.component';
+import { ReceitaModule } from './receita/receita.module';
+import { ReceitaRoutingModule } from './receita/receita.routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReceitaComponent,
     IngredienteComponent,
-    ReceitaDetalheComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReceitaModule,
+    ReceitaRoutingModule,
     AppRoutingModule,
   ],
   providers: [ConexaoService],
