@@ -1,5 +1,8 @@
-<div>
-    <ul *ngFor="let receita of receitas"> 
-        <li>{{ receita.nome }}</li>
-    </ul>
-</div>
+<h2>Receitas</h2>
+<ul>
+    <li *ngFor="let receita of receitas">
+        <a routerLink="{{receita.id}}">
+            {{receita.nome}}
+        </a>
+    </li>
+</ul>

@@ -1,3 +1,4 @@
+import { Receita } from './../Receita';
 import { Component, OnInit } from '@angular/core';
 
 import { ConexaoService } from './../conexao.service';
@@ -8,18 +9,22 @@ import { ConexaoService } from './../conexao.service';
   styleUrls: ['./receita.component.css']
 })
 export class ReceitaComponent implements OnInit {
+  receitas: Receita[];
 
   constructor(
-    private conexaoService : ConexaoService,
-  ) {}
+    private conexaoService: ConexaoService,
+  ) { }
 
   private uri = 'receitas';
-  public receitas: any;
 
   ngOnInit(): void {
+    this.getReceitas();
+  }
+
+  getReceitas(): void {
     this.conexaoService.getObjetos(this.uri).subscribe(
-      value => {
-        this.receitas = value;
+      receitas => {
+        this.receitas = receitas;
       },
       error => {
         console.log(error);

@@ -1,5 +1,9 @@
-<div>
-    <h1>Consegui pegar a receita!!!</h1>
+<div *ngIf="receita">
+    <h2>{{receita.nome}}</h2>
+    <div><span>id: </span>{{receita.id}}</div>
+    <div>
+        <p>{{receita.modo_de_preparo}}</p>
+        <p>{{receita.dificuldade}}</p>
+    </div>
+    <button (click)="goBack()">go back</button>
 </div>
-
-<router-outlet></router-outlet>

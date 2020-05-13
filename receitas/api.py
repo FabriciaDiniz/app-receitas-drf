@@ -7,6 +7,6 @@ from receitas.receitaIngrediente.views import ReceitaIngredienteViewSet
 router = SimpleRouter(trailing_slash=False)
 router.register('receitas', ReceitaViewSet, basename='receitas')
 router.register('ingredientes', IngredienteViewSet, basename='ingredientes')
-router.register('receita-ingredientes', ReceitaIngredienteViewSet, basename='receita-ingrediente')
+router.register('receita-ingredientes', ReceitaIngredienteViewSet, basename='receita-ingredientes')
 
 urlpatterns = router.urls
