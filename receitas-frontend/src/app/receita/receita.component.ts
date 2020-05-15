@@ -1,7 +1,7 @@
-import { Receita } from './../Receita';
 import { Component, OnInit } from '@angular/core';
 
 import { ConexaoService } from './../conexao.service';
+import { Receita } from './../Receita';
 
 @Component({
   selector: 'app-receita',

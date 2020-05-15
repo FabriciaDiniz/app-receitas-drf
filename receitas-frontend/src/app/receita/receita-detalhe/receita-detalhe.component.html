@@ -1,9 +1,15 @@
 <div *ngIf="receita">
-    <h2>{{receita.nome}}</h2>
-    <div><span>id: </span>{{receita.id}}</div>
+    <h2>{{receita.receita.nome}}</h2>
     <div>
-        <p>{{receita.modo_de_preparo}}</p>
-        <p>{{receita.dificuldade}}</p>
+        <h4>Ingrediente</h4>
+        <li>
+            {{receita.ingrediente.nome}}
+        </li>
+        <h4>Modo de preparo</h4>
+        <p>{{receita.receita.modo_de_preparo}}</p>
+
+        <h4>Dificuldade</h4>
+        <p>{{receita.receita.dificuldade}}</p>
     </div>
     <button (click)="goBack()">go back</button>
 </div>
