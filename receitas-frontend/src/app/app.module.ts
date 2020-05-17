@@ -8,12 +8,15 @@ import { IngredienteComponent } from './ingrediente/ingrediente.component';
 import { ConexaoService } from './conexao.service';
 import { ReceitaModule } from './receita/receita.module';
 import { ReceitaRoutingModule } from './receita/receita.routing.module';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IngredienteComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import { ReceitaRoutingModule } from './receita/receita.routing.module';
     ReceitaModule,
     ReceitaRoutingModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [ConexaoService],
   bootstrap: [AppComponent]

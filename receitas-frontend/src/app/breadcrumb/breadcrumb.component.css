@@ -1,0 +1,13 @@
+.breadcrumb {
+  display: flex;
+  list-style: none;
+}
+
+.breadcrumb--item:not(:last-of-type)::after {
+  content: '/';
+  margin: 0 10px;
+}
+
+.breadcrumb--item {
+	text-transform: capitalize;
+}
