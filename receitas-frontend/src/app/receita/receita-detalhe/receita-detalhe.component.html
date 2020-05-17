@@ -1,14 +1,16 @@
-<div *ngIf="receita">
-    <h2>{{receita.receita.nome}}</h2>
-    <div>
-        <h4>Ingrediente</h4>
-        <li>
-            {{receita.ingrediente.nome}}
-        </li>
-        <h4>Modo de preparo</h4>
-        <p>{{receita.receita.modo_de_preparo}}</p>
+<div class="container">
+    <div *ngIf="receita">
+        <h2>{{receita.receita.nome}}</h2>
+        <div>
+            <h3>Ingrediente</h3>
+            <li>
+                {{receita.ingrediente.nome}}
+            </li>
+            <h3>Modo de preparo</h3>
+            <p>{{receita.receita.modo_de_preparo}}</p>
 
-        <h4>Dificuldade</h4>
-        <p>{{receita.receita.dificuldade}}</p>
+            <h3>Dificuldade</h3>
+            <p>{{receita.receita.dificuldade}}</p>
+        </div>
     </div>
 </div>

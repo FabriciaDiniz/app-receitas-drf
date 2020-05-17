@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
-  <li>
-    <a routerLink="">Home</a>
-  </li>
-  <li class="breadcrumb--item" *ngFor="let item of breadcrumb">
-    <a *ngIf="item.length > 6" routerLink="{{ item }}">{{ item }}</a>
-    <a *ngIf="item.length < 6" routerLink="receitas/{{ item }}">{{ item }}</a>
-  </li>
+    <li>
+        <a routerLink="">Home</a>
+    </li>
+    <li class="breadcrumb--item" *ngFor="let item of breadcrumb">
+        <a *ngIf="item.length > 6" routerLink="{{ item }}">{{ item }}</a>
+        <a *ngIf="item.length < 6" routerLink="receitas/{{ item }}">{{ item }}</a>
+    </li>
 </ul>
