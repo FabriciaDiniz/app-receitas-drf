@@ -1,6 +1,7 @@
 .breadcrumb {
   display: flex;
   list-style: none;
+  padding-left: 0px;
 }
 
 .breadcrumb--item:not(:last-of-type)::after {
