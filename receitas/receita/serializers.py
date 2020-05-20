@@ -1,9 +1,12 @@
 from rest_framework import serializers
 
-from receitas.receita.models import Receita
+from receitas.receita.models import Receita, Dificuldade, Categorias
 
 
 class ReceitaSerializer(serializers.ModelSerializer):
+
+    dificuldade = serializers.ChoiceField(Dificuldade.choices)
+    categoria = serializers.ChoiceField(Categorias.choices)
 
     class Meta:
         model = Receita

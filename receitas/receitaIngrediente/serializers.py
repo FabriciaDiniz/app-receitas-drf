@@ -15,4 +15,4 @@ class ReceitaIngredienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReceitaIngrediente
         fields = '__all__'
-
+        depth = 1
