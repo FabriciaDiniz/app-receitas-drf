@@ -19,4 +19,3 @@ class ReceitaIngredienteViewSet(viewsets.ModelViewSet):
         ingredientes = ReceitaIngrediente.objects.filter(receita_id=receita_id)
         serializer = ReceitaIngredienteSerializer(ingredientes, many=True)
         return Response(serializer.data)
-

@@ -1,14 +1,12 @@
 from rest_framework import serializers
+from enumfields.drf.serializers import EnumSupportSerializerMixin
 
 from receitas.receitaIngrediente.models import ReceitaIngrediente
 from receitas.receita.serializers import ReceitaSerializer
 from receitas.ingrediente.serializers import IngredienteSerializer
 
-from receitas.receita.models import Receita
-from receitas.ingrediente.models import Ingrediente
 
-
-class ReceitaIngredienteSerializer(serializers.ModelSerializer):
+class ReceitaIngredienteSerializer(EnumSupportSerializerMixin, serializers.ModelSerializer):
     receita = ReceitaSerializer
     ingrediente = IngredienteSerializer
 

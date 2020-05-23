@@ -4,16 +4,11 @@ from enum import Enum
 
 
 class Dificuldade(Enum):
-    MUITO_FACIL = 'MF'
+    MUITO_FACIL = 'muito fácil'
     FACIL = 'fácil'
     MEDIO = 'médio'
     DIFICIL = 'difícil'
     MUITO_DIFICIL = 'muito difícil'
-
-    class Labels:
-        MUITO_FACIL = 'muito fácil'
-# https://github.com/hzdg/django-enumfields#enum
-# https://github.com/encode/django-rest-framework/issues/1755
 
 
 class Categorias(Enum):
@@ -29,10 +24,12 @@ class Receita(models.Model):
     nome = models.CharField(max_length=50, default="")
     modo_de_preparo = models.TextField()
     dificuldade = EnumField(
+        max_length=55,
         enum=Dificuldade,
         default=Dificuldade.MEDIO
     )
     categoria = EnumField(
+        max_length=55,
         enum=Categorias,
         default=Categorias.GERAL
     )
