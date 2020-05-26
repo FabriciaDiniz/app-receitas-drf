@@ -6,7 +6,7 @@ from receitas.receita.models import Receita
 from receitas.ingrediente.models import Ingrediente
 
 
-class Unidade(Enum):
+class Unidade(str, Enum):
     UNIDADE = 'unidade'
     XICARA = 'xícara'
     TSP = 'colher de chá'

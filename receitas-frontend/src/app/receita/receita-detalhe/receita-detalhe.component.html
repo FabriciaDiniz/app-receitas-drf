@@ -1,16 +1,18 @@
 <div class="container">
-    <div *ngIf="receita">
-        <h2>{{receita.receita.nome}}</h2>
-        <div>
-            <h3>Ingrediente</h3>
-            <li>
-                {{receita.ingrediente.nome}} - {{receita.quantidade}} {{receita.unidade}}
-            </li>
-            <h3>Modo de preparo</h3>
-            <p>{{receita.receita.modo_de_preparo}}</p>
+  <div *ngIf="receita">
+    <h2>{{ receita.receita.nome }}</h2>
+    <div>
+      <h3>Ingredientes</h3>
+      <li *ngFor="let item of receita.ingredientes">
+        {{ item.nome }} - {{ item.quantidade }}
+        {{ item.unidade }}
+      </li>
 
-            <h3>Dificuldade</h3>
-            <p>{{receita.receita.dificuldade}}</p>
-        </div>
+      <h3>Modo de preparo</h3>
+      <p>{{ receita.receita.modoDePreparo }}</p>
+
+      <h3>Dificuldade</h3>
+      <p>{{ receita.receita.dificuldade }}</p>
     </div>
+  </div>
 </div>
