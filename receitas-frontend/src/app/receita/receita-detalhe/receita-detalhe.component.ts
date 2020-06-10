@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConexaoService } from '../../conexao.service';
 import { ReceitaCompleta, Ingrediente } from './../../Receita';
@@ -9,12 +10,14 @@ import { ReceitaCompleta, Ingrediente } from './../../Receita';
   templateUrl: './receita-detalhe.component.html',
   styleUrls: ['./receita-detalhe.component.css'],
 })
-export class ReceitaDetalheComponent implements OnInit {
+export class ReceitaDetalheComponent implements OnInit, OnDestroy {
   receita: ReceitaCompleta;
+  inscricao: Subscription;
 
   constructor(
     private conexaoService: ConexaoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   public id: string;
@@ -26,10 +29,9 @@ export class ReceitaDetalheComponent implements OnInit {
 
   getReceita(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.conexaoService.getDetalheReceita(this.uri, this.id).subscribe(
+    this.inscricao = this.conexaoService.getDetalheReceita(this.id).subscribe(
       (receita) => {
         this.receita = this._formatarReceita(receita);
-        console.log(this.receita);
       },
       (error) => {
         console.log(error);
@@ -53,5 +55,13 @@ export class ReceitaDetalheComponent implements OnInit {
       }),
     };
     return receitaFormatada;
+  }
+
+  editar() {
+    this.router.navigate(['/receitas', this.receita.receita.id, 'edit']);
+  }
+
+  ngOnDestroy(): void {
+    this.inscricao.unsubscribe();
   }
 }

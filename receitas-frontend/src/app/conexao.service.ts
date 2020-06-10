@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from './../environments/environment';
+import { Receita } from './Receita';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +16,16 @@ export class ConexaoService {
     return this.httpClient.get(`${environment.apiUrl}${uri}`);
   }
 
-  public getDetalheReceita(uri: string, id: string): Observable<any> {
+  public getDetalheReceita(id: string): Observable<any> {
     return this.httpClient.get(
       `${environment.apiUrl}receita-ingredientes/${id}`
+    );
+  }
+
+  public saveReceitaEdit(receita: Receita) {
+    return this.httpClient.patch(
+      `${environment.apiUrl}receitas/${receita.id}`,
+      receita
     );
   }
 }

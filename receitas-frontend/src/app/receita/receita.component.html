@@ -1,15 +1,20 @@
 <div class="container">
-    <h2>Receitas</h2>
+  <h2>Receitas</h2>
+  <div class="items-grid">
     <mat-card *ngFor="let receita of receitas">
-        <mat-card-title>
-            <a routerLink="{{receita.id}}">
-                {{receita.nome}}
-            </a>
-        </mat-card-title>
-        <mat-card-subtitle>
-            {{receita.dificuldade}}
-        </mat-card-subtitle>
-        <img mat-card-image src="../../assets/img/brigadier-842642_640.jpg"
-            alt="foto de brigadeiros com confetes coloridos em um prato">
+      <mat-card-title>
+        <a routerLink="{{ receita.id }}">
+          {{ receita.nome }}
+        </a>
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ receita.dificuldade }}
+      </mat-card-subtitle>
+      <img
+        mat-card-image
+        src="../../assets/img/brigadier-842642_640.jpg"
+        alt="foto de brigadeiros com confetes coloridos em um prato"
+      />
     </mat-card>
+  </div>
 </div>

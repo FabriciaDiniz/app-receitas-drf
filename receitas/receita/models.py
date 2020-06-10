@@ -36,6 +36,3 @@ class Receita(models.Model):
 
     def __str__(self):
         return self.nome
-
-    def ToJson(self) -> str:
-        return json.dumps(self.__dict__, cls=EnumEncoder, indent=1, sort_keys=True)

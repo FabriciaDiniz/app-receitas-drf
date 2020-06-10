@@ -28,4 +28,4 @@ class ReceitaIngrediente(models.Model):
         enum=Unidade,
         default=Unidade.UNIDADE
     )
-    quantidade = models.CharField(max_length=5)
+    quantidade = models.CharField(max_length=5, blank=True, null=True)

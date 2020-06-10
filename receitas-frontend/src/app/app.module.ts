@@ -11,24 +11,28 @@ import { ReceitaModule } from './receita/receita.module';
 import { ReceitaRoutingModule } from './receita/receita.routing.module';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ReceitaFormComponent } from './receita/receita-form/receita-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        IngredienteComponent,
-        BreadcrumbComponent,
-        HomeComponent,
-    ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        ReceitaModule,
-        ReceitaRoutingModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-    ],
-    providers: [ConexaoService],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    IngredienteComponent,
+    BreadcrumbComponent,
+    HomeComponent,
+    ReceitaFormComponent,
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ReceitaModule,
+    ReceitaRoutingModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [ConexaoService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
