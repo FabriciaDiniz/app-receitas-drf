@@ -22,7 +22,6 @@ class Categorias(str, Enum):
 class Receita(models.Model):
 
     nome = models.CharField(max_length=50, default="")
-    modo_de_preparo = models.TextField()
     dificuldade = EnumField(
         max_length=55,
         enum=Dificuldade,

@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from receitas.ingrediente.models import Ingrediente
+from receitas.passos.models import Passos
 from receitas.receita.serializers import ReceitaSerializer
 
 
-class IngredienteSerializer(serializers.ModelSerializer):
+class PassosSerializer(serializers.ModelSerializer):
     receita = ReceitaSerializer
 
     class Meta:
-        model = Ingrediente
+        model = Passos
         fields = '__all__'

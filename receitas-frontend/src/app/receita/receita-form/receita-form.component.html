@@ -1,0 +1,42 @@
+<h5>Criar/editar receita</h5>
+
+<!--TODO: colocar os ingredientes em readonly e só liberar pra editar se a pessoa clicar pra editar-->
+
+<div class="col s12">
+  <div class="row">
+    <div class="input-field col s12">
+      <label for="id" disabled>#</label>
+      <input disabled [(ngModel)]="receita.receita.id" name="id" type="text" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <label for="nome" class="active">Nome</label>
+      <input name="nome" [(ngModel)]="receita.receita.nome" class="validate" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <label for="modo_de_preparo" class="active">Modo de preparo</label>
+      <input
+        name="modo_de_preparo"
+        [(ngModel)]="receita.receita.modoDePreparo"
+        class="validate"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <label for="dificuldade" class="active">Dificuldade</label>
+      <select [(ngModel)]="selectedValue" name="dificuldade" class="validate">
+        <option
+          *ngFor="let dificuldade of dificuldades"
+          value="dificuldade.nome"
+        >
+          {{ dificuldade.nome }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <button (click)="save()">Salvar</button>
+</div>

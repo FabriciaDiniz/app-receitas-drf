@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'receitas.receita',
     'receitas.ingrediente',
-    'receitas.receitaIngrediente',
+    'receitas.passos',
 ]
 
 MIDDLEWARE = [
