@@ -11,4 +11,3 @@ class ReceitaViewSet(viewsets.ModelViewSet):
 
     queryset = Receita.objects.all()
     serializer_class = ReceitaSerializer
-
