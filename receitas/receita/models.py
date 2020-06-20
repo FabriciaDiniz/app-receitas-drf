@@ -1,4 +1,5 @@
 from django.db import models
+
 from enumfields import EnumField
 from enum import Enum
 

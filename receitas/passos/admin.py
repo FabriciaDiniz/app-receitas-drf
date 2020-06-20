@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from receitas.passos.models import Passos
+
+
+class PassosAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Passos, PassosAdmin)
