@@ -1,17 +1,24 @@
 export interface Receita {
   id: number;
   nome: string;
-  modoDePreparo: string;
+  categoria: string;
   dificuldade: string;
+  ingredientes: Ingrediente[];
+  passos: Passo[];
 }
 
 export interface Ingrediente {
+  id: number;
   nome: string;
   unidade: string;
   quantidade: string;
+  substituto: boolean;
+  receita: number;
 }
 
-export interface ReceitaCompleta {
-  receita: Receita;
-  ingredientes: Ingrediente[];
+export interface Passo {
+  id: number;
+  ordem: number;
+  passo: string;
+  receita: number;
 }

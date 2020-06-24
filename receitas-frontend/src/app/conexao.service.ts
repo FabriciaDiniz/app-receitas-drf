@@ -16,13 +16,12 @@ export class ConexaoService {
     return this.httpClient.get(`${environment.apiUrl}${uri}`);
   }
 
-  public getDetalheReceita(id: string): Observable<any> {
-    return this.httpClient.get(
-      `${environment.apiUrl}receita-ingredientes/${id}`
-    );
+  public getReceita(id: string): Observable<any> {
+    return this.httpClient.get(`${environment.apiUrl}receitas/${id}`);
   }
 
   public saveReceitaEdit(receita: Receita) {
+    // TODO: adicionar as outras requests
     return this.httpClient.patch(
       `${environment.apiUrl}receitas/${receita.id}`,
       receita

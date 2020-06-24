@@ -1,0 +1,14 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.list-item__style {
+  list-style: decimal;
+}
+
+.receita-itens__padding {
+  margin: 20px 0px;
+}

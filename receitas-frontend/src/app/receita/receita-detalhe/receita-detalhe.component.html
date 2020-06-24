@@ -1,18 +1,24 @@
 <div class="container">
   <div *ngIf="receita">
-    <h2>{{ receita.receita.nome }}</h2>
+    <h2>{{ receita.nome }}</h2>
+    <p>{{ receita.categoria }}</p>
     <div>
-      <h3>Ingredientes</h3>
-      <li *ngFor="let item of receita.ingredientes">
-        {{ item.nome }} - {{ item.quantidade }}
-        {{ item.unidade }}
-      </li>
-
-      <h3>Modo de preparo</h3>
-      <p>{{ receita.receita.modoDePreparo }}</p>
-
-      <h3>Dificuldade</h3>
-      <p>{{ receita.receita.dificuldade }}</p>
+      <div class="receita-itens__padding">
+        <h3>Ingredientes</h3>
+        <li *ngFor="let item of receita.ingredientes">
+          {{ item.nome }} - {{ item.quantidade }} {{ item.unidade }}
+        </li>
+      </div>
+      <div class="receita-itens__padding">
+        <h3>Modo de preparo</h3>
+        <li class="list-item__style" *ngFor="let passo of receita.passos">
+          {{ passo.passo }}
+        </li>
+      </div>
+      <div class="receita-itens__padding">
+        <h3>Dificuldade</h3>
+        <p>{{ receita.dificuldade }}</p>
+      </div>
     </div>
   </div>
   <button (click)="editar()">Editar</button>

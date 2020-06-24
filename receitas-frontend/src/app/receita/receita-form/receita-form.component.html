@@ -6,13 +6,13 @@
   <div class="row">
     <div class="input-field col s12">
       <label for="id" disabled>#</label>
-      <input disabled [(ngModel)]="receita.receita.id" name="id" type="text" />
+      <input disabled [(ngModel)]="receita.id" name="id" type="text" />
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
       <label for="nome" class="active">Nome</label>
-      <input name="nome" [(ngModel)]="receita.receita.nome" class="validate" />
+      <input name="nome" [(ngModel)]="receita.nome" class="validate" />
     </div>
   </div>
   <div class="row">
@@ -20,7 +20,7 @@
       <label for="modo_de_preparo" class="active">Modo de preparo</label>
       <input
         name="modo_de_preparo"
-        [(ngModel)]="receita.receita.modoDePreparo"
+        [(ngModel)]="receita.modoDePreparo"
         class="validate"
       />
     </div>

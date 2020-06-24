@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConexaoService } from '../../conexao.service';
-import { ReceitaCompleta, Ingrediente } from './../../Receita';
+import { Receita, Ingrediente } from './../../Receita';
 
 @Component({
   selector: 'app-receita-detalhe',
@@ -11,7 +11,7 @@ import { ReceitaCompleta, Ingrediente } from './../../Receita';
   styleUrls: ['./receita-detalhe.component.css'],
 })
 export class ReceitaDetalheComponent implements OnInit, OnDestroy {
-  receita: ReceitaCompleta;
+  receita: Receita;
   inscricao: Subscription;
 
   constructor(
@@ -29,36 +29,35 @@ export class ReceitaDetalheComponent implements OnInit, OnDestroy {
 
   getReceita(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.inscricao = this.conexaoService.getDetalheReceita(this.id).subscribe(
+    this.inscricao = this.conexaoService.getReceita(this.id).subscribe(
       (receita) => {
-        this.receita = this._formatarReceita(receita);
+        this.receita = receita;
       },
       (error) => {
         console.log(error);
       }
     );
   }
-  _formatarReceita(itens) {
-    const receitaFormatada: ReceitaCompleta = {
-      receita: {
-        id: itens[0].receita.id,
-        nome: itens[0].receita.nome,
-        modoDePreparo: itens[0].receita.modo_de_preparo,
-        dificuldade: itens[0].receita.dificuldade,
-      },
-      ingredientes: itens.map((item) => {
+  _formatarReceita(receita) {
+    const receitaFormatada: Receita = {
+      id: receita.id,
+      nome: receita.nome,
+      categoria: receita.categoria,
+      dificuldade: receita.dificuldade,
+      ingredientes: receita.ingredientes.forEach((item) => {
         return {
           nome: item.ingrediente.nome,
           quantidade: item.quantidade,
           unidade: item.unidade,
         } as Ingrediente;
       }),
+      passos: [],
     };
     return receitaFormatada;
   }
 
   editar() {
-    this.router.navigate(['/receitas', this.receita.receita.id, 'edit']);
+    this.router.navigate(['/receitas', this.receita.id, 'edit']);
   }
 
   ngOnDestroy(): void {

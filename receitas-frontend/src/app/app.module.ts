@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { IngredienteComponent } from './ingrediente/ingrediente.component';
 import { ConexaoService } from './conexao.service';
 import { ReceitaModule } from './receita/receita.module';
 import { ReceitaRoutingModule } from './receita/receita.routing.module';
@@ -17,7 +16,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    IngredienteComponent,
     BreadcrumbComponent,
     HomeComponent,
     ReceitaFormComponent,
