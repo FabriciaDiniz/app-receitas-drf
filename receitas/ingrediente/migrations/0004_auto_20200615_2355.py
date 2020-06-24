@@ -22,7 +22,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ingrediente',
             name='receita',
-            field=models.ForeignKey(default=2, on_delete=django.db.models.deletion.CASCADE, to='receita.Receita'),
+            field=models.ForeignKey(
+                default=2, on_delete=django.db.models.deletion.CASCADE, to='receita'),
             preserve_default=False,
         ),
         migrations.AddField(
@@ -33,6 +34,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ingrediente',
             name='unidade',
-            field=enumfields.fields.EnumField(default='unidade', enum=receitas.ingrediente.models.Unidade, max_length=55),
+            field=enumfields.fields.EnumField(
+                default='unidade', enum=receitas.ingrediente.models.Unidade, max_length=55),
         ),
     ]
