@@ -10,16 +10,10 @@ import { ReceitaModule } from './receita/receita.module';
 import { ReceitaRoutingModule } from './receita/receita.routing.module';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReceitaFormComponent } from './receita/receita-form/receita-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BreadcrumbComponent,
-    HomeComponent,
-    ReceitaFormComponent,
-  ],
+  declarations: [AppComponent, BreadcrumbComponent, HomeComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

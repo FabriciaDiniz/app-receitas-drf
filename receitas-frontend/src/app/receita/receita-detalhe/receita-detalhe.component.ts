@@ -1,9 +1,9 @@
-import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { ConexaoService } from '../../conexao.service';
-import { Receita, Ingrediente } from './../../Receita';
+import { Receita } from './../../Receita';
 
 @Component({
   selector: 'app-receita-detalhe',
@@ -21,7 +21,6 @@ export class ReceitaDetalheComponent implements OnInit, OnDestroy {
   ) {}
 
   public id: string;
-  private uri: string = 'receitas';
 
   ngOnInit(): void {
     this.getReceita();
@@ -37,23 +36,6 @@ export class ReceitaDetalheComponent implements OnInit, OnDestroy {
         console.log(error);
       }
     );
-  }
-  _formatarReceita(receita) {
-    const receitaFormatada: Receita = {
-      id: receita.id,
-      nome: receita.nome,
-      categoria: receita.categoria,
-      dificuldade: receita.dificuldade,
-      ingredientes: receita.ingredientes.forEach((item) => {
-        return {
-          nome: item.ingrediente.nome,
-          quantidade: item.quantidade,
-          unidade: item.unidade,
-        } as Ingrediente;
-      }),
-      passos: [],
-    };
-    return receitaFormatada;
   }
 
   editar() {

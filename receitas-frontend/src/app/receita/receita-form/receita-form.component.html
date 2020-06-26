@@ -1,42 +1,49 @@
 <h5>Criar/editar receita</h5>
 
-<!--TODO: colocar os ingredientes em readonly e só liberar pra editar se a pessoa clicar pra editar-->
+<!-- TODO: colocar os ingredientes em readonly e só liberar pra editar se a pessoa clicar pra editar -->
 
-<div class="col s12">
-  <div class="row">
-    <div class="input-field col s12">
-      <label for="id" disabled>#</label>
-      <input disabled [(ngModel)]="receita.id" name="id" type="text" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <label for="nome" class="active">Nome</label>
-      <input name="nome" [(ngModel)]="receita.nome" class="validate" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <label for="modo_de_preparo" class="active">Modo de preparo</label>
-      <input
-        name="modo_de_preparo"
-        [(ngModel)]="receita.modoDePreparo"
-        class="validate"
-      />
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <label for="dificuldade" class="active">Dificuldade</label>
-      <select [(ngModel)]="selectedValue" name="dificuldade" class="validate">
-        <option
-          *ngFor="let dificuldade of dificuldades"
-          value="dificuldade.nome"
-        >
-          {{ dificuldade.nome }}
-        </option>
-      </select>
-    </div>
-  </div>
-  <button (click)="save()">Salvar</button>
-</div>
+<form>
+  <mat-form-field class="input-field col s12">
+    <mat-label for="nome" class="active">Nome</mat-label>
+    <input
+      matInput
+      id="nome"
+      name="nome"
+      [placeholder]="receita.nome"
+      [(ngModel)]="receita.nome"
+      class="validate"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="input-field col s12">
+    <mat-label for="ingredientes" class="active">Ingredientes</mat-label>
+    <input
+      matInput
+      id="ingredientes"
+      name="ingredientes"
+      [(ngModel)]="receita.ingredientes[0].nome"
+      class="validate"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="input-field col s12">
+    <mat-label for="passos" class="active">Modo de preparo</mat-label>
+    <textarea
+      matInput
+      name="passos"
+      id="passos"
+      [(ngModel)]="receita.passos.passo"
+      class="validate"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="input-field col s12">
+    <mat-label for="dificuldade" class="active">Dificuldade</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="dificuldade" class="validate">
+      <mat-option *ngFor="let dificuldade of dificuldades" value="dificuldade">
+        {{ dificuldade }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+</form>

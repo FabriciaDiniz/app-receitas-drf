@@ -1,8 +1,9 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import { ConexaoService } from './../../conexao.service';
 import { Receita, Ingrediente } from './../../Receita';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-receita-form',
@@ -33,34 +34,12 @@ export class ReceitaFormComponent implements OnInit, OnDestroy {
     this.id = this._route.snapshot.paramMap.get('id');
     this.inscricao = this._conexaoService.getReceita(this.id).subscribe(
       (receita) => {
-        this.receita = this._formatarReceita(receita);
-        if (this.receita == null) {
-          this.receita = {};
-        }
+        this.receita = receita;
       },
       (error) => {
         console.log(error);
       }
     );
-  }
-  _formatarReceita(itens) {
-    // desestruturando
-    const { receita, ingrediente } = itens;
-    const receitaFormatada: Receita = {
-      id: itens[0].receita.id,
-      nome: itens[0].receita.nome,
-      categoria: itens[0].receita.categoria,
-      dificuldade: itens[0].receita.dificuldade,
-      ingredientes: itens.map((item) => {
-        return {
-          nome: item.ingrediente.nome,
-          quantidade: item.quantidade,
-          unidade: item.unidade,
-        } as Ingrediente;
-      }),
-      passos: [],
-    };
-    return receitaFormatada;
   }
 
   save() {
