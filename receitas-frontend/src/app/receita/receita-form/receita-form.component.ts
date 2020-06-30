@@ -15,7 +15,9 @@ export class ReceitaFormComponent implements OnInit, OnDestroy {
   receita: any = {};
   inscricao: Subscription;
   dificuldades = ['muito fácil', 'fácil', 'médio', 'difícil', 'muito difícil'];
-  selectedValue: any;
+  categorias = ['Geral', 'Sobremesas', 'Salgados', 'Bolos', 'Acompanhamentos'];
+  selectedCategory: any;
+  selectedDificulty: any;
 
   constructor(
     private _conexaoService: ConexaoService,
@@ -35,6 +37,8 @@ export class ReceitaFormComponent implements OnInit, OnDestroy {
     this.inscricao = this._conexaoService.getReceita(this.id).subscribe(
       (receita) => {
         this.receita = receita;
+        this.selectedCategory = receita.categoria;
+        this.selectedDificulty = receita.dificuldade;
       },
       (error) => {
         console.log(error);
