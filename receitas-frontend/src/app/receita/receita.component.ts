@@ -9,7 +9,8 @@ import { Receita } from './../Receita';
   styleUrls: ['./receita.component.css'],
 })
 export class ReceitaComponent implements OnInit {
-  receitas: Receita[];
+  unfilteredReceitas: Receita[];
+  filteredReceitas: Receita[];
 
   constructor(private conexaoService: ConexaoService) {}
 
@@ -22,11 +23,24 @@ export class ReceitaComponent implements OnInit {
   getReceitas(): void {
     this.conexaoService.getReceitas(this.uri).subscribe(
       (receitas) => {
-        this.receitas = receitas;
+        this.unfilteredReceitas = receitas;
+        this.filteredReceitas = receitas;
       },
       (error) => {
         console.log(error);
       }
     );
+  }
+
+  atualizaLista(filter: string) {
+    if (filter) {
+      this.filteredReceitas = this.unfilteredReceitas.filter((receita) => {
+        return receita.ingredientes.some((ingrediente) => {
+          return ingrediente.nome.toLowerCase().includes(filter.toLowerCase());
+        });
+      });
+    } else {
+      this.filteredReceitas = this.unfilteredReceitas;
+    }
   }
 }

@@ -1,7 +1,16 @@
 <div class="container">
-  <h2>Receitas</h2>
+  <div class="barra-inicial">
+    <h2>Receitas</h2>
+    <input
+      class="rounded"
+      placeholder="Procure por ingrediente"
+      type="search"
+      autofocus
+      (keyup)="atualizaLista($event.target.value)"
+    />
+  </div>
   <div class="items-grid">
-    <mat-card *ngFor="let receita of receitas">
+    <mat-card *ngFor="let receita of filteredReceitas">
       <mat-card-title>
         <a routerLink="{{ receita.id }}">
           {{ receita.nome }}

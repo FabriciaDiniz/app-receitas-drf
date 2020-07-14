@@ -9,6 +9,11 @@ mat-card-title {
   line-height: 24px;
 }
 
+.barra-inicial {
+  display: flex;
+  justify-content: space-between;
+}
+
 .items-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
